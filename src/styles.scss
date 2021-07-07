@@ -1,8 +1,9 @@
 @import "./app/styles/normalize";
+@import "./app/styles/colors";
 
 body {
   font-size: 0.875rem;
-  background-color: #d3d3d3;
+  background-color: $dark-gray;
   height: 100vh;
   width: 100vw;
   overflow-x:hidden;
@@ -11,30 +12,13 @@ body {
 a {
   text-decoration: none;
 }
-.commits-container {
-  max-width: 48rem;
-  margin: auto;
-}
-
-.repository-container {
-  margin: 40px;
-  display: grid;
-  grid-gap: 0.625rem;
-  grid-template-columns: repeat(auto-fill, minmax(25rem, 1fr));
-  place-items: center;
-  max-width: 120rem;
-}
 
 .warning {
-  color: #FFCC00;
+  color: $warn-color;
 }
 
 .card-width {
   max-width: 20rem;
-}
-
-.search-box-height {
-  height: 100vh;
 }
 
 .reset-button {
@@ -43,11 +27,13 @@ a {
   background: none;
   border: none;
   cursor: pointer;
+  mat-icon {
+    font-size: 2.1875rem;
+  }
 }
 
-// Change height upon the form submission!
-.search-box-submit-height {
-  height: 40vh;
+dd {
+  margin-left: 0;
 }
 
 .submit-button {
@@ -62,8 +48,20 @@ article {
   margin-bottom: 1.25rem;
 }
 
+.mb-4 {
+  margin-bottom: 0.25rem !important;
+}
+
 .ml-80 {
   margin-left: 5rem;
+}
+
+.mb-5 {
+  margin-top: 0.3125rem;
+}
+
+.link-button {
+  color: $link-button;
 }
 
 .bold-font {
@@ -78,6 +76,10 @@ mat-card {
 
 mat-error {
   font-size: 0.875rem;
+}
+
+mat-form-field {
+  width: 15rem;
 }
 
 .mat-card-image {
@@ -98,3 +100,11 @@ mat-error {
   text-align: center;
 }
 
+.search-box-height {
+  height: 100vh;
+}
+
+// Change height upon the form submission!
+.search-box-submit-height {
+  height: 40vh;
+}

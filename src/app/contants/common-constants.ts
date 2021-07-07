@@ -5,4 +5,5 @@ export const appConstants = {
   LANGUAGE: "javascript",
   CARD_BUTTON_LABEL: "See recent commits!",
   NO_RECORD_FOUND: "No records exist for: ",
+  MAT_HINT: "Search Javascript related repositories.",
 }

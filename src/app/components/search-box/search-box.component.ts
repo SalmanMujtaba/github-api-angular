@@ -12,6 +12,7 @@ export class SearchBoxComponent implements OnInit {
   @Input() matLabel: string;
   @Output() formValue: EventEmitter<any> = new EventEmitter;
   @Input() searchBoxCSS: string;
+  @Input() hint: string;
 
   validPattern = "^[a-zA-Z0-9]{10}$";
   constructor(private formBuilder: FormBuilder) {

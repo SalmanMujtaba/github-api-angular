@@ -1,12 +1,12 @@
 <main *ngIf="!showSpinner">
   <section>
-    <app-search-box [searchBoxCSS]="setFormCardHeightClass" (formValue)="formValue($event)" [matLabel]="matLabel"
-      [matError]="matError"></app-search-box>
+    <app-search-box [searchBoxCSS]="setFormCardHeightClass" [hint]="hint" (formValue)="formValue($event)"
+      [matLabel]="matLabel" [matError]="matError"></app-search-box>
   </section>
   <div class="mb-20">
     <section class="commits-container" *ngIf="commitsResponse && !isRepositoriesOnScreen">
       <button (click)="backButtonClicked()" class="reset-button mb-20">
-        <img src="../assets/arrow_back_black_48dp.svg" alt="Back Button">
+        <mat-icon class="link-button" aria-hidden="false" aria-label="Back button icon">arrow_back</mat-icon>
       </button>
       <!-- Commits Begin -->
       <mat-accordion>
@@ -15,6 +15,7 @@
             [date]="item?.commit?.author?.date" [authorName]="item?.commit?.author?.name"
             [authorEmail]="item?.commit?.author?.email"></app-expansion-panel>
         </ng-container>
+        <mat-divider></mat-divider>
       </mat-accordion>
       <!-- Commits End -->
     </section>
