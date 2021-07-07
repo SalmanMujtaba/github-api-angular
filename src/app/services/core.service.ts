@@ -1,5 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { appConstants } from './../contants/common-constants';
 
 @Injectable({
   providedIn: 'root'
@@ -8,13 +10,12 @@ export class CoreService {
 
   constructor(private http: HttpClient) { }
 
-  getRepositories(query: string) {
-    const language = "javascipt";
-    // const endpoint = window.encodeURI(`https://api.github.com/search/repositories?q=stars:>1+language:${language}&sort=stars&order=desc&type=Repositories`)
+  getRepositories(query: string): Observable<any> | null {
     if (query) {
-      const endpoint = window.encodeURI(`https://api.github.com/users/${query.trim()}/repos`);
-      this.http.get(endpoint).subscribe(res => console.log(res));
+      const language = appConstants.LANGUAGE;
+      const endpoint = window.encodeURI(`https://api.github.com/search/repositories?q=org:${query}+language:${language}&type=Repositories`);
+      return this.http.get(endpoint);
     }
-
+    return;
   }
 }

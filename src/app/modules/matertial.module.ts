@@ -1,6 +1,8 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
+import { MatDialogModule } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -16,25 +18,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     BrowserAnimationsModule,
     MatInputModule,
     MatFormFieldModule,
-    MatButtonModule
+    MatButtonModule,
+    MatCardModule,
+    MatDialogModule,
+    // MatLabel
   ]
 })
 export class MaterialModule { }
-
-// @NgModule({
-//   declarations: [
-//     AppComponent,
-//     SearchBoxComponent
-//   ],
-//   imports: [
-//     FormsModule,
-//     HttpClientModule,
-//     BrowserModule,
-//     NoopAnimationsModule,
-//     ReactiveFormsModule,
-//     MaterialModule
-//   ],
-//   providers: [],
-//   bootstrap: [AppComponent]
-// })
-// export class AppModule { }
