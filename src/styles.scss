@@ -60,6 +60,10 @@ article {
   margin-top: 0.3125rem;
 }
 
+.mt-40 {
+  margin-top: 2.5rem;
+}
+
 .link-button {
   color: $link-button;
 }
@@ -106,5 +110,5 @@ mat-form-field {
 
 // Change height upon the form submission!
 .search-box-submit-height {
-  height: 40vh;
+  height: 30vh;
 }

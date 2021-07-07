@@ -28,6 +28,8 @@ export class AppComponent implements OnDestroy {
   isRepositoriesOnScreen: boolean;
   authorRepoName: string;
   hint: string;
+  toggleSearchbox: boolean = true;
+
   constructor(private coreService: CoreService, public dialog: MatDialog) {
     this.buttonText = appConstants.CARD_BUTTON_LABEL;
     this.matError = appConstants.MAT_ERROR;
@@ -60,12 +62,18 @@ export class AppComponent implements OnDestroy {
     this.showSpinner = true;
     this.authorRepoName = authorRepoName;
     if (authorRepoName && authorRepoName.trim().length > 0) {
-      this.coreService.getCommits(authorRepoName).pipe(
-        takeUntil(this.subs$),
-      ).subscribe(
-        (res: Array<any>) => this.manageCommits(res["items"]),
-        (err => this.manageError(err)));
+      if (this.cacheCommits.get(this.authorRepoName)) {
+        this.commitsResponse = this.cacheCommits.get(this.authorRepoName).slice();
+        this.manageCommits(this.commitsResponse);
+      } else {
+        this.coreService.getCommits(authorRepoName).pipe(
+          takeUntil(this.subs$),
+        ).subscribe(
+          (res: Array<any>) => this.manageCommits(res["items"]),
+          (err => this.manageError(err)));
+      }
     }
+
   }
 
   manageRepoData(items) {
@@ -74,6 +82,7 @@ export class AppComponent implements OnDestroy {
       this.setFormCardHeightClass = "search-box-submit-height";
       this.repoResponse = items;
       this.isRepositoriesOnScreen = true;
+      this.toggleSearchbox = true;
       this.cacheRepositories.set(this.repository, this.repoResponse);
     } else {
       this.openDialog(appConstants.NO_RECORD_FOUND + this.repository);
@@ -85,6 +94,8 @@ export class AppComponent implements OnDestroy {
     if (commitsData && commitsData.length) {
       this.commitsResponse = commitsData;
       this.isRepositoriesOnScreen = false;
+      this.toggleSearchbox = false;
+
       this.setFormCardHeightClass = "search-box-submit-height";
       this.cacheCommits.set(this.authorRepoName, this.commitsResponse);
     } else {
@@ -108,6 +119,7 @@ export class AppComponent implements OnDestroy {
 
   backButtonClicked() {
     this.isRepositoriesOnScreen = true;
+    this.toggleSearchbox = true;
   }
 
   ngOnDestroy() {

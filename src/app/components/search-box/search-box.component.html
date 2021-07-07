@@ -3,7 +3,7 @@
     <form [formGroup]="thresholdForm" (ngSubmit)="onSubmit(thresholdForm.value)">
       <mat-form-field>
         <mat-label>{{matLabel}}</mat-label>
-        <input formControlName="threshold" matInput>
+        <input maxlength="30" formControlName="threshold" matInput>
         <mat-hint class="hint">{{hint}}</mat-hint>
         <mat-error *ngIf="!thresholdForm.controls['threshold'].valid && thresholdForm.controls['threshold'].touched">
           {{matError}}

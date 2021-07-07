@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
@@ -6,26 +6,23 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   templateUrl: './search-box.component.html',
   styleUrls: ['./search-box.component.scss']
 })
-export class SearchBoxComponent implements OnInit {
+export class SearchBoxComponent {
   thresholdForm: FormGroup;
   @Input() matError: string;
   @Input() matLabel: string;
   @Output() formValue: EventEmitter<any> = new EventEmitter;
   @Input() searchBoxCSS: string;
   @Input() hint: string;
+  nonWhitespaceRegExp: RegExp = new RegExp("\\S");
 
-  validPattern = "^[a-zA-Z0-9]{10}$";
   constructor(private formBuilder: FormBuilder) {
 
     this.createForm();
   }
 
-  ngOnInit(): void {
-  }
-
   createForm(): void {
     this.thresholdForm = this.formBuilder.group({
-      'threshold': ['', Validators.required]
+      'threshold': ['', [Validators.required, Validators.pattern(this.nonWhitespaceRegExp)]]
     });
   }
 

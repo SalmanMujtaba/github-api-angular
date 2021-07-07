@@ -9,14 +9,18 @@
   grid-gap: 0.625rem;
   grid-template-columns: repeat(auto-fill, minmax(25rem, 1fr));
   place-items: center;
-  max-width: 120rem;
+  max-width: 95vw;
 }
 
 
 @media (max-width: 768px) {
   .repository-container {
-    grid-row-gap: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    grid-gap: 2.5rem;
+    margin-top: 0;
   }
+
   .commits-container {
     margin-left: 1.25rem;
     margin-right: 1.25rem;

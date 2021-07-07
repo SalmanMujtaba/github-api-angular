@@ -3,3 +3,13 @@
   justify-content: space-between;
   align-items: center;
 }
+
+.mat-title-arrangement {
+  display: flex;
+}
+
+@media (max-width: 768px) {
+  .mat-title-arrangement {
+    display: block;
+  }
+}

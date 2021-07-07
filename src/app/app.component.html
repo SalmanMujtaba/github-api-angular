@@ -1,5 +1,5 @@
 <main *ngIf="!showSpinner">
-  <section>
+  <section *ngIf="toggleSearchbox">
     <app-search-box [searchBoxCSS]="setFormCardHeightClass" [hint]="hint" (formValue)="formValue($event)"
       [matLabel]="matLabel" [matError]="matError"></app-search-box>
   </section>
