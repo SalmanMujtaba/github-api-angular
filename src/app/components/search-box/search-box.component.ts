@@ -4,13 +4,14 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 @Component({
   selector: 'app-search-box',
   templateUrl: './search-box.component.html',
-  styleUrls: ['./search-box.component.sass']
+  styleUrls: ['./search-box.component.scss']
 })
 export class SearchBoxComponent implements OnInit {
   thresholdForm: FormGroup;
   @Input() matError: string;
   @Input() matLabel: string;
   @Output() formValue: EventEmitter<any> = new EventEmitter;
+  @Input() searchBoxCSS: string;
 
   validPattern = "^[a-zA-Z0-9]{10}$";
   constructor(private formBuilder: FormBuilder) {

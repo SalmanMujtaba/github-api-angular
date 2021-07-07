@@ -1,26 +1,48 @@
 @import "./app/styles/normalize";
 
-.container {
-  width: 80vh;
+body {
+  font-size: 0.875rem;
+  background-color: #d3d3d3;
+  // background: linear-gradient(135deg, rgba(0,0,0,0.22), rgba(255,255,255,0.25));
+  height: 100vh;
+  width: 100vw;
+  overflow-x:hidden;
+}
+
+.child-container {
+  margin: 40px;
+  display: grid;
+  grid-gap: 0.625rem;
+  // grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fill, minmax(25rem, 1fr));
+  max-width: 120rem;
+  place-items: center;
 }
 
 .warning {
   color: #FFCC00;
 }
 
-.dialog-container {
-  max-width: '60vw' !important;
-  max-height: '60vh' !important;
-  height: '100%' !important;
-  width: '100%' !important;
+.card-width {
+  max-width: 20rem;
 }
 
-@media screen and (max-width: 767px) {
-  .dialog-container {
-    max-width: '100vw' !important;
-    max-height: '100vh' !important;
-    height: '100%' !important;
-    width: '100%' !important;
-  }
+.search-box-height {
+  height: 100vh;
+}
+
+// Change height upon the form submission!
+.search-box-submit-height {
+  height: 40vh;
+}
+
+mat-card {
+  box-shadow: 0.75rem 0.75rem 1rem 0 rgba(0, 0, 0, 0.25),
+   -0.5rem -0.5rem 0.75rem 0 rgba(255, 255, 255, 0.3) !important;
+  border-radius: 3.125rem !important;
+}
+
+.mat-card-content, .mat-card-actions, .submit-button {
+  text-align: center;
 }
 

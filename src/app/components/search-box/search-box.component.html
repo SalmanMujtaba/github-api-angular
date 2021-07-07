@@ -1,11 +1,16 @@
-<form [formGroup]="thresholdForm" (ngSubmit)="onSubmit(thresholdForm.value)">
-  <mat-form-field>
-    <mat-label>{{matLabel}}</mat-label>
-    <input formControlName="threshold" matInput>
-    <mat-error *ngIf="!thresholdForm.controls['threshold'].valid && thresholdForm.controls['threshold'].touched">
-      {{matError}}
-    </mat-error>
-  </mat-form-field>
-  <button mat-raised-button class="margin-left-10" color="primary">Submit</button>
-</form>
-<!-- <app-child-list *ngIf="listData && listData.length" [data]="listData"></app-child-list> -->
+<div [ngClass]="searchBoxCSS" class="search-container">
+  <mat-card class="search-card">
+    <form [formGroup]="thresholdForm" (ngSubmit)="onSubmit(thresholdForm.value)">
+      <mat-form-field>
+        <mat-label>{{matLabel}}</mat-label>
+        <input formControlName="threshold" matInput>
+        <mat-error *ngIf="!thresholdForm.controls['threshold'].valid && thresholdForm.controls['threshold'].touched">
+          {{matError}}
+        </mat-error>
+      </mat-form-field>
+      <div>
+        <button class="submit-button" mat-raised-button class="margin-left-10" color="primary">Submit</button>
+      </div>
+    </form>
+  </mat-card>
+</div>
