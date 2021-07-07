@@ -15,17 +15,18 @@ export class AppComponent implements OnDestroy {
   title = 'github-api-angular';
   matError: string;
   matLabel: string;
-  response: any;
+  repoResponse: any;
   buttonText: string;
   setFormCardHeightClass: string;
   showSpinner: boolean;
   subs$ = new Subject();
+  commitsResponse: any;
+
   constructor(private coreService: CoreService, public dialog: MatDialog) {
     this.buttonText = appConstants.CARD_BUTTON_LABEL;
     this.matError = appConstants.MAT_ERROR;
     this.matLabel = appConstants.MAT_LABEL;
     this.setFormCardHeightClass = "search-box-height";
-
   }
 
   formValue({ threshold }) {
@@ -40,16 +41,14 @@ export class AppComponent implements OnDestroy {
     )
       .subscribe(
         (res: Array<any>) => this.manageData(res["items"]),
-        (err => this.manageError(err)),
-        () => console.log("at the end")
-      );
+        (err => this.manageError(err)));
   }
 
   manageData(items) {
     this.showSpinner = false;
     this.setFormCardHeightClass = "search-box-submit-height";
     if (items) {
-      this.response = items;
+      this.repoResponse = items;
 
     }
   }
@@ -65,6 +64,24 @@ export class AppComponent implements OnDestroy {
     dialogRef.afterClosed().subscribe(result => {
     });
 
+  }
+
+  repositoryName(repoName: string) {
+    this.showSpinner = true;
+    if (repoName && repoName.trim().length > 0) {
+      this.coreService.getCommits(repoName).pipe(
+        takeUntil(this.subs$),
+      )
+        .subscribe(
+          (res: Array<any>) => this.manageCommits(res["items"]),
+          (err => this.manageError(err)));
+    }
+  }
+
+  manageCommits(commitsData: Array<unknown>) {
+    this.showSpinner = false;
+    this.commitsResponse = commitsData;
+    console.log(commitsData);
   }
 
   ngOnDestroy() {

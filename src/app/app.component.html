@@ -3,14 +3,17 @@
     <app-search-box [searchBoxCSS]="setFormCardHeightClass" (formValue)="formValue($event)" [matLabel]="matLabel"
       [matError]="matError"></app-search-box>
   </section>
-  <section>
-    <div class="parent-container">
-      <div *ngIf="response" class="child-container">
-        <ng-container *ngFor="let item of response">
-          <app-card [title]="item?.name" [description]="item?.description" [avatar]="item?.owner?.avatar_url"
-            [fullName]="item?.full_name" [buttonText]="buttonText" cardCSS="card-width"></app-card>
-        </ng-container>
-      </div>
+  <section class="mb-20">
+    <button *ngIf="response" class="reset-button ml-80">
+      <img src="../assets/arrow_back_black_48dp.svg" alt="Back Button">
+    </button>
+    <div *ngIf="response" class="child-container">
+      <ng-container *ngFor="let item of repoResponse">
+        <app-card [title]="item?.name" [description]="item?.description" [avatar]="item?.owner?.avatar_url"
+          [fullName]="item?.full_name" [buttonText]="buttonText" cardCSS="card-width"
+          (commits)="repositoryName($event)">
+        </app-card>
+      </ng-container>
     </div>
   </section>
 </main>

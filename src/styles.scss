@@ -3,7 +3,6 @@
 body {
   font-size: 0.875rem;
   background-color: #d3d3d3;
-  // background: linear-gradient(135deg, rgba(0,0,0,0.22), rgba(255,255,255,0.25));
   height: 100vh;
   width: 100vw;
   overflow-x:hidden;
@@ -13,7 +12,6 @@ body {
   margin: 40px;
   display: grid;
   grid-gap: 0.625rem;
-  // grid-template-columns: repeat(3, 1fr);
   grid-template-columns: repeat(auto-fill, minmax(25rem, 1fr));
   max-width: 120rem;
   place-items: center;
@@ -31,6 +29,14 @@ body {
   height: 100vh;
 }
 
+.reset-button {
+  padding: 0;
+  margin: 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
 // Change height upon the form submission!
 .search-box-submit-height {
   height: 40vh;
@@ -44,9 +50,17 @@ article {
   font-size: 1rem;
 }
 
+.mb-20 {
+  margin-bottom: 1.25rem;
+}
+
+.ml-80 {
+  margin-left: 5rem;
+}
+
 mat-card {
   box-shadow: 0.75rem 0.75rem 1rem 0 rgba(0, 0, 0, 0.25),
-   -0.5rem -0.5rem 0.75rem 0 rgba(255, 255, 255, 0.3) !important;
+    -0.5rem -0.5rem 0.75rem 0 rgba(255, 255, 255, 0.3) !important;
   border-radius: 3.125rem !important;
 }
 
