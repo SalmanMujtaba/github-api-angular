@@ -3,6 +3,6 @@ export const appConstants = {
   MAT_LABEL: "Repository search",
   DIALOG_ERROR: "Unable to retrieve records at this time. Please try again later.",
   LANGUAGE: "javascript",
-  CARD_BUTTON_LABEL: "See recent commits!"
-
+  CARD_BUTTON_LABEL: "See recent commits!",
+  NO_RECORD_FOUND: "No records exist for: ",
 }

@@ -8,18 +8,21 @@ body {
   overflow-x:hidden;
 }
 
-
 a {
   text-decoration: none;
 }
+.commits-container {
+  max-width: 48rem;
+  margin: auto;
+}
 
-.child-container {
+.repository-container {
   margin: 40px;
   display: grid;
   grid-gap: 0.625rem;
   grid-template-columns: repeat(auto-fill, minmax(25rem, 1fr));
-  max-width: 120rem;
   place-items: center;
+  max-width: 120rem;
 }
 
 .warning {
@@ -84,6 +87,11 @@ mat-error {
 
 .mat-card-actions {
   padding-bottom: 0.3125rem !important; // 5px
+}
+
+.mat-dialog-content {
+  min-height: 5.3125rem;
+  margin-top: 1.875rem !important;
 }
 
 .mat-card-content, .mat-card-actions, .submit-button {

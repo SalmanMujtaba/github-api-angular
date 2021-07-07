@@ -11,8 +11,8 @@ export class ErrorDialogComponent implements OnInit {
 
   ngOnInit(): void {
     console.log(this.data);
-    if (!(this.data && this.data.name)) {
-      this.data["name"] = appConstants.DIALOG_ERROR;
+    if (!(this.data)) {
+      this.data = appConstants.DIALOG_ERROR;
     }
     // this.error = this.data
   }
