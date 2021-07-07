@@ -18,4 +18,12 @@ export class CoreService {
     }
     return;
   }
+
+  getCommits(query: string): Observable<any> | null {
+    if (query) {
+      const endpoint = window.encodeURI(`https://api.github.com/search/commits?q=org:${query}`);
+      return this.http.get(endpoint);
+    }
+    return;
+  }
 }

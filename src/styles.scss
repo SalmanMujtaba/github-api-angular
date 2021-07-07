@@ -36,10 +36,31 @@ body {
   height: 40vh;
 }
 
+.submit-button {
+  margin-top: 0.625rem;
+}
+
+article {
+  font-size: 1rem;
+}
+
 mat-card {
   box-shadow: 0.75rem 0.75rem 1rem 0 rgba(0, 0, 0, 0.25),
    -0.5rem -0.5rem 0.75rem 0 rgba(255, 255, 255, 0.3) !important;
   border-radius: 3.125rem !important;
+}
+
+mat-error {
+  font-size: 0.875rem;
+}
+
+.mat-card-image {
+  margin: unset !important;
+  width: 100% !important;
+}
+
+.mat-card-actions {
+  padding-bottom: 0.3125rem !important; // 5px
 }
 
 .mat-card-content, .mat-card-actions, .submit-button {

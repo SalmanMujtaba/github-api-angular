@@ -1,4 +1,4 @@
-<main>
+<main *ngIf="!showSpinner">
   <section>
     <app-search-box [searchBoxCSS]="setFormCardHeightClass" (formValue)="formValue($event)" [matLabel]="matLabel"
       [matError]="matError"></app-search-box>
@@ -8,9 +8,10 @@
       <div *ngIf="response" class="child-container">
         <ng-container *ngFor="let item of response">
           <app-card [title]="item?.name" [description]="item?.description" [avatar]="item?.owner?.avatar_url"
-            [buttonText]="buttonText" cardCSS="card-width"></app-card>
+            [fullName]="item?.full_name" [buttonText]="buttonText" cardCSS="card-width"></app-card>
         </ng-container>
       </div>
     </div>
   </section>
 </main>
+<app-spinner *ngIf="showSpinner"></app-spinner>
