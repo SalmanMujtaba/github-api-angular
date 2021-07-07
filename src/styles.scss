@@ -8,6 +8,11 @@ body {
   overflow-x:hidden;
 }
 
+
+a {
+  text-decoration: none;
+}
+
 .child-container {
   margin: 40px;
   display: grid;
@@ -56,6 +61,10 @@ article {
 
 .ml-80 {
   margin-left: 5rem;
+}
+
+.bold-font {
+  font-weight: 600;
 }
 
 mat-card {

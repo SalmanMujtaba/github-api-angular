@@ -4,10 +4,17 @@
       [matError]="matError"></app-search-box>
   </section>
   <section class="mb-20">
-    <button *ngIf="response" class="reset-button ml-80">
+    <button *ngIf="repoResponse" class="reset-button ml-80">
       <img src="../assets/arrow_back_black_48dp.svg" alt="Back Button">
     </button>
-    <div *ngIf="response" class="child-container">
+    <mat-accordion *ngIf="commitsResponse">
+      <ng-container *ngFor="let item of commitsResponse">
+        <app-expansion-panel [url]="item?.html_url" [comment]="item?.commit?.message"
+          [date]="item?.commit?.author?.date" [authorName]="item?.commit?.author?.name"
+          [authorEmail]="item?.commit?.author?.email"></app-expansion-panel>
+      </ng-container>
+    </mat-accordion>
+    <div *ngIf="repoResponse" class="child-container">
       <ng-container *ngFor="let item of repoResponse">
         <app-card [title]="item?.name" [description]="item?.description" [avatar]="item?.owner?.avatar_url"
           [fullName]="item?.full_name" [buttonText]="buttonText" cardCSS="card-width"
