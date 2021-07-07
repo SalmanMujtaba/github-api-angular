@@ -86,7 +86,6 @@ export class AppComponent implements OnDestroy {
       this.commitsResponse = commitsData;
       this.isRepositoriesOnScreen = false;
       this.setFormCardHeightClass = "search-box-submit-height";
-      console.log(commitsData);
       this.cacheCommits.set(this.authorRepoName, this.commitsResponse);
     } else {
       this.openDialog(appConstants.NO_RECORD_FOUND + this.authorRepoName);

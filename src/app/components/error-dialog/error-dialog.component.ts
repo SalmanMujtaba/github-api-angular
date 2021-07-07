@@ -10,11 +10,9 @@ export class ErrorDialogComponent implements OnInit {
   constructor(@Inject(MAT_DIALOG_DATA) public data) { }
 
   ngOnInit(): void {
-    console.log(this.data);
     if (!(this.data)) {
       this.data = appConstants.DIALOG_ERROR;
     }
-    // this.error = this.data
   }
 
 }
