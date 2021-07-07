@@ -1,0 +1,16 @@
+<mat-card [ngClass]=cardCSS>
+  <mat-card-header *ngIf="avatar || title">
+    <div mat-card-avatar class="header-image"><img [src]="avatar" [alt]="alt"></div>
+    <mat-card-title>{{title}}</mat-card-title>
+    <mat-card-subtitle *ngIf="fullName">{{fullName}}</mat-card-subtitle>
+  </mat-card-header>
+  <img *ngIf="avatar" mat-card-image img [src]="avatar" [alt]="altMainImage">
+  <mat-card-content *ngIf="description">
+    <article>
+      {{description}}
+    </article>
+  </mat-card-content>
+  <mat-card-actions *ngIf="!!buttonText">
+    <button mat-raised-button color="primary" (click)="commits.emit(title)">{{buttonText}}</button>
+  </mat-card-actions>
+</mat-card>

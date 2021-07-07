@@ -1,0 +1,110 @@
+@import "./app/styles/normalize";
+@import "./app/styles/colors";
+
+body {
+  font-size: 0.875rem;
+  background-color: $dark-gray;
+  height: 100vh;
+  width: 100vw;
+  overflow-x:hidden;
+}
+
+a {
+  text-decoration: none;
+}
+
+.warning {
+  color: $warn-color;
+}
+
+.card-width {
+  max-width: 20rem;
+}
+
+.reset-button {
+  padding: 0;
+  margin: 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  mat-icon {
+    font-size: 2.1875rem;
+  }
+}
+
+dd {
+  margin-left: 0;
+}
+
+.submit-button {
+  margin-top: 0.625rem;
+}
+
+article {
+  font-size: 1rem;
+}
+
+.mb-20 {
+  margin-bottom: 1.25rem;
+}
+
+.mb-4 {
+  margin-bottom: 0.25rem !important;
+}
+
+.ml-80 {
+  margin-left: 5rem;
+}
+
+.mb-5 {
+  margin-top: 0.3125rem;
+}
+
+.link-button {
+  color: $link-button;
+}
+
+.bold-font {
+  font-weight: 600;
+}
+
+mat-card {
+  box-shadow: 0.75rem 0.75rem 1rem 0 rgba(0, 0, 0, 0.25),
+    -0.5rem -0.5rem 0.75rem 0 rgba(255, 255, 255, 0.3) !important;
+  border-radius: 3.125rem !important;
+}
+
+mat-error {
+  font-size: 0.875rem;
+}
+
+mat-form-field {
+  width: 15rem;
+}
+
+.mat-card-image {
+  margin: unset !important;
+  width: 100% !important;
+}
+
+.mat-card-actions {
+  padding-bottom: 0.3125rem !important; // 5px
+}
+
+.mat-dialog-content {
+  min-height: 5.3125rem;
+  margin-top: 1.875rem !important;
+}
+
+.mat-card-content, .mat-card-actions, .submit-button {
+  text-align: center;
+}
+
+.search-box-height {
+  height: 100vh;
+}
+
+// Change height upon the form submission!
+.search-box-submit-height {
+  height: 40vh;
+}

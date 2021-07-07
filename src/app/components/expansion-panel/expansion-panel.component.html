@@ -1,0 +1,18 @@
+<mat-expansion-panel class="mb-4">
+  <mat-expansion-panel-header>
+    <mat-panel-title class="flex-center mb-5">
+      <div>
+        Author: <span class="bold-font">{{authorName}}</span>
+      </div>
+      <div>Date: <span class="bold-font">{{date | date}}</span></div>
+    </mat-panel-title>
+  </mat-expansion-panel-header>
+
+  <dl>
+    <dt>Author Email:</dt>
+    <dd class="mb-20">{{authorEmail}}</dd>
+    <dt>Comment:</dt>
+    <dd [innerHTML]="comment"></dd>
+  </dl>
+  <a [href]="url" target="_blank">View Commit</a>
+</mat-expansion-panel>
