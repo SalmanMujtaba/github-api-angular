@@ -28,7 +28,7 @@ export class CoreService {
     if (query) {
       const headerDict = {
         Accept: 'application/vnd.github.cloak-preview+json',
-        Authorization: 'token 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'
+        Authorization: 'token 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'
       }
       const requestOptions = {
         headers: new HttpHeaders(headerDict),
