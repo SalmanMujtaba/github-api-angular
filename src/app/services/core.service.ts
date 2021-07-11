@@ -2,6 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import * as moment from 'moment';
 import { Observable } from 'rxjs';
+import { environment } from '../../environments/environment';
 import { appConstants } from './../contants/common-constants';
 @Injectable({
   providedIn: 'root'
@@ -26,9 +27,10 @@ export class CoreService {
 
   getCommits(query: string): Observable<any> | null {
     if (query) {
+      console.log(environment.api_key.replace(/%/g, ''))
       const headerDict = {
         Accept: 'application/vnd.github.cloak-preview+json',
-        Authorization: 'token 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'
+        Authorization: `token ${environment.api_key.replace(/%/g, '')}`
       }
       const requestOptions = {
         headers: new HttpHeaders(headerDict),
